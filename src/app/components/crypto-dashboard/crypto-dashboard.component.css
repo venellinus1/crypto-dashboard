@@ -1,0 +1,68 @@
+/* Container styles */
+.ticker-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    position: relative;
+    height: 50px; /* Adjust as needed */
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Ticker styles */
+  .ticker {
+    display: flex;
+    align-items: center;
+    animation: scroll-left 20s linear infinite;
+  }
+  
+  /* Ticker item styles */
+  .ticker-item {
+    display: flex;
+    align-items: center;
+    margin-right: 30px; /* Space between items */
+    white-space: nowrap;
+    font-size: 1.2em; /* Adjust font size as needed */
+  }
+  
+  /* Coin name styles */
+  .coin-name {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  /* Coin price styles */
+  .coin-price {
+    color: green; 
+  }
+  
+  /* Loading text styles */
+  .loading {
+    color: gray;
+  }
+
+  .coin-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+  
+  .ticker-item {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    white-space: nowrap;
+    font-size: 1.2em;
+  }
+  
+  
+  /* Animation keyframes */
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
