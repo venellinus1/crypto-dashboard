@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CryptoDashboardComponent } from './components/crypto-dashboard/crypto-dashboard.component';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,

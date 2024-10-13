@@ -1,30 +1,13 @@
 <div class="ticker-container">
-    <div class="ticker">
-      <div class="ticker-item" *ngFor="let coin of coins">
-        <img
-          [src]="getIconUrl(coin)"
-          [alt]="coin"
-          class="coin-icon"
-        />
-        <span class="coin-price" *ngIf="prices[coin]">
-          ${{ prices[coin].usd | number: '1.2-2' }}
-        </span>
-        <span class="loading" *ngIf="!prices[coin]">Loading...</span>
+    <div class="ticker-wrap">
+      <div class="ticker-move">
+        <div class="ticker-item" *ngFor="let coin of coins">
+          <img [src]="getIconUrl(coin)" alt="{{coin}} icon" />
+          <span>${{ prices[coin]?.usd | number: '1.2-2' }}</span>
+        </div>
         
       </div>
       
-      <div class="ticker-item" *ngFor="let coin of coins">
-        <img
-          [src]="getIconUrl(coin)"
-          [alt]="coin"
-          class="coin-icon"
-        />
-        <span class="coin-price" *ngIf="prices[coin]">
-          ${{ prices[coin].usd | number: '1.2-2' }}
-        </span>
-        <span class="loading" *ngIf="!prices[coin]">Loading...</span>
-        
-      </div>
     </div>
   </div>
   
