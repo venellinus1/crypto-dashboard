@@ -1,0 +1,8 @@
+<div class="dashboard">
+    <h1>Real-Time Cryptocurrency Prices</h1>
+    <div *ngFor="let coin of coins">
+      <h2>{{ coin | titlecase }}</h2>
+      <p *ngIf="prices[coin]">USD {{ prices[coin].usd }}</p>
+      <p *ngIf="!prices[coin]">Loading...</p>
+    </div>
+  </div>
