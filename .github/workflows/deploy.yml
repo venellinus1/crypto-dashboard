@@ -24,7 +24,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/portfolio/browser
+          folder: dist/crypto-dashboard/browser
           branch: master
           token: ${{ secrets.CRYPTO_DASHBOARD_DEPLOY_TOKEN }}
 
