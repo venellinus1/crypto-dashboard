@@ -21,9 +21,9 @@
   .ticker-item {
     display: inline-block;
     padding: 0 2rem;
-    color: #fff;
+    color: #fff; 
     font-size: 1.2em; 
-    font-family: Arial, sans-serif; 
+    font-family: Arial, sans-serif;
     display: flex;
     align-items: center;
   }
@@ -35,10 +35,37 @@
     margin-right: 10px;
   }
   
-  /* Styling for the text (currency value and label) */
-  .ticker-item span {
-    color: #00ff00; /* Green color for the price to make it stand out */
+  /* Styling for the coin name */
+  .coin-name {
+    margin-right: 8px;
     font-weight: bold;
+  }
+  
+  /* Styling for the price */
+  .coin-price {
+    color: #00ff00; /* Green color for the price */
+    margin-right: 10px;
+  }
+  
+ /* Styling for the percentage change */
+ .coin-change {
+    font-weight: normal; 
+    margin-left: 8px; 
+  }
+  
+  /* Positive change styling */
+  .positive-change {
+    color: #00ff00; 
+  }
+  
+  /* Negative change styling */
+  .negative-change {
+    color: #ff0000; 
+  }
+  
+  /* Zero change styling */
+  .zero-change {
+    color: #cccccc;
   }
   
   /* Animation keyframes for the scrolling effect */

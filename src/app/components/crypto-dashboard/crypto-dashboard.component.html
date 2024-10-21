@@ -1,13 +1,26 @@
 <div class="ticker-container">
-    <div class="ticker-wrap">
-      <div class="ticker-move">
-        <div class="ticker-item" *ngFor="let coin of coins">
-          <img [src]="getIconUrl(coin)" alt="{{coin}} icon" />
-          <span>${{ prices[coin]?.usd | number: '1.2-2' }}</span>
-        </div>
+  <div class="ticker-wrap">
+    <div class="ticker-move">
+      <div class="ticker-item" *ngFor="let coin of coins">
+        <img [src]="getIconUrl(coin)" alt="{{ coin }} icon" class="coin-icon" />
+        <span class="coin-name">{{ coin | titlecase }}:</span>
+        <span class="coin-price" *ngIf="prices && prices[coin] && prices[coin]?.usd !== undefined">
+            ${{ prices[coin]!.usd | number: '1.2-2' }}
+        </span>
         
+        <span
+          class="coin-change"
+          *ngIf="prices && prices[coin] && prices[coin]?.change !== undefined"
+          [ngClass]="{
+            'positive-change': prices[coin].change! > 0,
+            'negative-change': prices[coin].change! < 0,
+            'zero-change': prices[coin].change! === 0
+          }"
+          
+        >
+          ({{ prices[coin].change! >= 0 ? '+' : '' }}{{ prices[coin].change }} %)
+        </span>
       </div>
-      
     </div>
   </div>
-  
+</div>
