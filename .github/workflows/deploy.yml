@@ -3,7 +3,7 @@ name: Angular Build and Deploy
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist/portfolio/browser
-          branch: gh-pages
+          branch: master
           token: ${{ secrets.CRYPTO_DASHBOARD_DEPLOY_TOKEN }}
 
       - name: Delete old workflow runs
