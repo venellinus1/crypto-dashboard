@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgFor, NgIf, CommonModule } from '@angular/common';
 import { CryptoService } from '../../services/crypto.service';
+import { CryptoHistoricalComponent } from "../crypto-historical/crypto-historical.component";
 
 interface CryptoPrice {
   usd: number;
@@ -10,14 +11,14 @@ interface CryptoPrice {
 @Component({
   selector: 'app-crypto-dashboard',
   standalone: true,
-  imports: [NgIf, NgFor, CommonModule],
+  imports: [NgIf, NgFor, CommonModule, CryptoHistoricalComponent],
   templateUrl: './crypto-dashboard.component.html',
   styleUrl: './crypto-dashboard.component.css'
 })
 
 export class CryptoDashboardComponent implements OnInit {
   coins = ['bitcoin', 'ethereum', 'litecoin', 'dogecoin', 'ripple', 'solana'];
-  //prices: any = {};
+  selectedCoin: string = 'bitcoin';
   prices: { [key: string]: CryptoPrice } = {};
   previousPrices: { [key: string]: number } = {};
 
@@ -55,4 +56,6 @@ export class CryptoDashboardComponent implements OnInit {
       this.previousPrices[coin] = currentPrice;
     });
   }
+
+  
 }
