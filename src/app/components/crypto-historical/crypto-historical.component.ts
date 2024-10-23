@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { CryptoService } from '../../services/crypto.service';
 import * as echarts from 'echarts';
 import { AgGridAngular } from 'ag-grid-angular'; 
@@ -14,9 +14,11 @@ import 'ag-grid-community/styles/ag-theme-alpine.css';
   standalone: true,
   imports: [AgGridAngular, CommonModule],
 })
-export class CryptoHistoricalComponent implements OnInit {
+export class CryptoHistoricalComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() coin: string = 'bitcoin';
   historicalData: any[] = [];
+  chartInstance: any;
+
   columnDefs = [
     { field: 'date', headerName: 'Date', sortable: true, filter: true, flex: 1 },
     { field: 'price', headerName: 'Price (USD)', sortable: true, filter: true, flex: 2 },
@@ -63,5 +65,27 @@ export class CryptoHistoricalComponent implements OnInit {
       ],
     };
     myChart.setOption(option);
+  }
+
+  ngAfterViewInit() {
+    this.chartInstance = echarts.init(document.getElementById(`chart-${this.coin}`));
+    this.setupChart();
+    
+    window.addEventListener('resize', this.onWindowResize.bind(this));
+  }
+
+  setupChart() {
+    const chartOptions = {};
+    this.chartInstance.setOption(chartOptions);
+  }
+
+  onWindowResize() {
+    if (this.chartInstance) {
+      this.chartInstance.resize();
+    }
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener('resize', this.onWindowResize.bind(this));
   }
 }
