@@ -19,7 +19,7 @@ jobs:
 
       - name: Build Angular app to prod
         working-directory: .
-        run: npm install && npm run build -- --base-href "/crypto-dashboard/"
+        run: npm install && npm run build -- --base-href "./"
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
